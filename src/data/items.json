@@ -1,25 +1,25 @@
 [
   {
     "id": 1,
-    "name": "Book",
+    "name": "Green",
     "price": 10.99,
     "imgUrl": "/images/green.jpg"
   },
   {
     "id": 2,
-    "name": "Computer",
+    "name": "Sky",
     "price": 1199,
     "imgUrl": "/images/sky.jpg"
   },
   {
     "id": 3,
-    "name": "Banana",
+    "name": "Colors",
     "price": 1.05,
     "imgUrl": "/images/colors.jpg"
   },
   {
     "id": 4,
-    "name": "Car",
+    "name": "Card",
     "price": 14000,
     "imgUrl": "/images/lightgreen.jpg"
   }
