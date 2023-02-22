@@ -10,8 +10,8 @@ type StoreItemProps = {
 }
 export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
 
-  const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart()
-  
+  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart()
+
   const quantity = getItemQuantity(id)
 
   return (
@@ -30,19 +30,22 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
           </span>
         </Card.Title>
         <div className="mt-auto">
-          <div className="d-flex justify-content-between align-items-center">
-            <div className="w-50 align-items-center d-flex">
-              <Button onClick={() => increaseCartQuantity(id)}>+</Button>
-              <span className="fs-3 mx-2">
-                {quantity}
-              </span>
-              <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
+          {quantity === 0 ? (
+            <Button className="w-100" onClick={() => increaseCartQuantity(id)}>Add To Cart</Button>
+          ) : (
+            <div className="d-flex align-items-center flex-column" style={{ gap: ".5rem" }}>
+              <div className="d-flex justify-content-center" style={{ gap: ".5rem" }}>
+                <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
+                <div>
+                  <span className="fs-3">{quantity}</span> in cart
+                </div>
+                <Button onClick={() => increaseCartQuantity(id)}>+</Button>
+              </div>
+              <Button onClick={() => removeFromCart(id)} variant="danger" className="w-100">
+                Remove
+              </Button>
             </div>
-            <Button className="w-50" variant="danger" onClick={() => removeFromCart(id)}>Remove</Button>
-          </div>
-
-          <Button className="w-100 mt-4" onClick={() => increaseCartQuantity(id)}>Add To Cart</Button>
-
+          )}
         </div>
 
       </Card.Body>
