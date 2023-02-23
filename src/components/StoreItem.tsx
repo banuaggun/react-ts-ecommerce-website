@@ -34,7 +34,7 @@ export function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
             <Button className="w-100" onClick={() => increaseCartQuantity(id)}>Add To Cart</Button>
           ) : (
             <div className="d-flex align-items-center flex-column" style={{ gap: ".5rem" }}>
-              <div className="d-flex justify-content-center" style={{ gap: ".5rem" }}>
+              <div className="w-100 d-flex justify-content-evenly" style={{ gap: ".5rem" }}>
                 <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
                 <div>
                   <span className="fs-3">{quantity}</span> in cart
